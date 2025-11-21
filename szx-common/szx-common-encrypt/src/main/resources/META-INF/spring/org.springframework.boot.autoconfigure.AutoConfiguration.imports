@@ -1,0 +1,3 @@
+com.szx.common.encrypt.config.EncryptorAutoConfiguration
+com.szx.common.encrypt.config.ApiDecryptAutoConfiguration
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>szx</artifactId>
+        <groupId>com.szx</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>szx-common-bom</module>
+        <module>szx-common-social</module>
+        <module>szx-common-core</module>
+        <module>szx-common-doc</module>
+        <module>szx-common-excel</module>
+        <module>szx-common-idempotent</module>
+        <module>szx-common-job</module>
+        <module>szx-common-log</module>
+        <module>szx-common-mail</module>
+        <module>szx-common-mybatis</module>
+        <module>szx-common-oss</module>
+        <module>szx-common-ratelimiter</module>
+        <module>szx-common-redis</module>
+        <module>szx-common-satoken</module>
+        <module>szx-common-security</module>
+        <module>szx-common-sms</module>
+        <module>szx-common-web</module>
+        <module>szx-common-translation</module>
+        <module>szx-common-sensitive</module>
+        <module>szx-common-json</module>
+        <module>szx-common-encrypt</module>
+        <module>szx-common-websocket</module>
+        <module>szx-common-sse</module>
+    </modules>
+
+    <artifactId>szx-common</artifactId>
+    <packaging>pom</packaging>
+
+    <description>
+        common 通用模块
+    </description>
+
+</project>

@@ -1,0 +1,5 @@
+com.szx.common.web.config.CaptchaConfig
+com.szx.common.web.config.FilterConfig
+com.szx.common.web.config.I18nConfig
+com.szx.common.web.config.ResourcesConfig
+com.szx.common.web.config.UndertowConfig

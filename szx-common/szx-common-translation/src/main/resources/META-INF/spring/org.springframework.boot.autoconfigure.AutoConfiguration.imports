@@ -1,0 +1,6 @@
+com.szx.common.translation.config.TranslationConfig
+com.szx.common.translation.core.impl.DeptNameTranslationImpl
+com.szx.common.translation.core.impl.DictTypeTranslationImpl
+com.szx.common.translation.core.impl.OssUrlTranslationImpl
+com.szx.common.translation.core.impl.UserNameTranslationImpl
+com.szx.common.translation.core.impl.NicknameTranslationImpl
