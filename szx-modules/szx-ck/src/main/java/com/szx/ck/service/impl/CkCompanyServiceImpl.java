@@ -1,23 +1,24 @@
 package com.szx.ck.service.impl;
 
-import com.szx.common.core.utils.MapstructUtils;
-import com.szx.common.mybatis.core.page.TableDataInfo;
-import com.szx.common.mybatis.core.page.PageQuery;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.szx.ck.domain.CkCompany;
+import com.szx.ck.domain.bo.CkCompanyBo;
+import com.szx.ck.domain.vo.CkCompanyVo;
+import com.szx.ck.mapper.CkCompanyMapper;
+import com.szx.ck.service.ICkCompanyService;
+import com.szx.common.core.utils.MapstructUtils;
+import com.szx.common.core.utils.StringUtils;
+import com.szx.common.mybatis.core.page.PageQuery;
+import com.szx.common.mybatis.core.page.TableDataInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import com.szx.ck.domain.bo.CkCompanyBo;
-import com.szx.ck.domain.vo.CkCompanyVo;
-import com.szx.ck.domain.CkCompany;
-import com.szx.ck.mapper.CkCompanyMapper;
-import com.szx.ck.service.ICkCompanyService;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.Collection;
 
 /**
  * 企业信息Service业务层处理

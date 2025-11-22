@@ -1,11 +1,14 @@
 package com.szx.ck.domain.bo;
 
 import com.szx.ck.domain.CkCompany;
+import com.szx.common.core.validate.AddGroup;
+import com.szx.common.core.validate.EditGroup;
 import com.szx.common.mybatis.core.domain.BaseEntity;
 import io.github.linpeilie.annotations.AutoMapper;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import jakarta.validation.constraints.*;
 
 /**
  * 企业信息业务对象 ck_company
