@@ -7,6 +7,7 @@ import com.szx.common.core.utils.StringUtils;
 import org.redisson.spring.data.connection.RedissonConnectionFactory;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisConnectionUtils;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,6 +50,21 @@ public class CacheController {
             connection.commands().dbSize(), pieList));
         } finally {
             // 归还连接给连接池
+            RedisConnectionUtils.releaseConnection(connection, connectionFactory);
+        }
+    }
+
+    /**
+     * 清空Redis缓存
+     */
+    @SaCheckPermission("monitor:cache:list")
+    @DeleteMapping("/clear")
+    public R<Void> clearCache() {
+        RedisConnection connection = connectionFactory.getConnection();
+        try {
+            connection.serverCommands().flushDb();
+            return R.ok("缓存清空成功");
+        } finally {
             RedisConnectionUtils.releaseConnection(connection, connectionFactory);
         }
     }

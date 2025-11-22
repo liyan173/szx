@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.szx</groupId>
+        <artifactId>szx-modules</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>szx-ck</artifactId>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+
+        <!-- 通用工具-->
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-doc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-sms</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-mail</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-idempotent</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-mybatis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-log</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-excel</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-ratelimiter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-translation</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-sensitive</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-encrypt</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-common-websocket</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>

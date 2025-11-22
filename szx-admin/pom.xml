@@ -88,6 +88,11 @@
         </dependency>
 
         <dependency>
+            <groupId>com.szx</groupId>
+            <artifactId>szx-ck</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
         </dependency>

@@ -8,7 +8,7 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 
-.script/
+
 
 ######################################################################
 # IDE
@@ -29,7 +29,7 @@ target/
 
 ### JRebel ###
 rebel.xml
-
+.script/sql
 ### NetBeans ###
 nbproject/private/
 build/*
@@ -49,3 +49,5 @@ nbdist/
 !*/build/*.xml
 
 .flattened-pom.xml
+
+
