@@ -9,7 +9,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 
 
-
+./script/*
 ######################################################################
 # IDE
 
@@ -29,7 +29,7 @@ target/
 
 ### JRebel ###
 rebel.xml
-.script/sql
+./script/sql/
 ### NetBeans ###
 nbproject/private/
 build/*
