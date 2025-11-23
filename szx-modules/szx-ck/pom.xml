@@ -98,7 +98,6 @@
             <groupId>com.szx</groupId>
             <artifactId>szx-common-websocket</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>
