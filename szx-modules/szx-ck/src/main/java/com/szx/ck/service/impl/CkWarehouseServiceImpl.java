@@ -71,35 +71,47 @@ public class CkWarehouseServiceImpl implements ICkWarehouseService {
     }
 
     private LambdaQueryWrapper<CkWarehouse> buildQueryWrapper(CkWarehouseBo bo) {
+
         Map<String, Object> params = bo.getParams();
         LambdaQueryWrapper<CkWarehouse> lqw = Wrappers.lambdaQuery();
-        lqw.orderByAsc(CkWarehouse::getId);
-        lqw.like(StringUtils.isNotBlank(bo.getWarehouseName()), CkWarehouse::getWarehouseName, bo.getWarehouseName());
-        lqw.eq(bo.getAreaMu() != null, CkWarehouse::getAreaMu, bo.getAreaMu());
-        lqw.eq(StringUtils.isNotBlank(bo.getLandProperty()), CkWarehouse::getLandProperty, bo.getLandProperty());
-        lqw.eq(bo.getUseYears() != null, CkWarehouse::getUseYears, bo.getUseYears());
-        lqw.eq(bo.getBuildingCount() != null, CkWarehouse::getBuildingCount, bo.getBuildingCount());
-        lqw.eq(bo.getVolumeRatio() != null, CkWarehouse::getVolumeRatio, bo.getVolumeRatio());
-        lqw.eq(bo.getFloorHeight() != null, CkWarehouse::getFloorHeight, bo.getFloorHeight());
-        lqw.eq(bo.getTotalArea() != null, CkWarehouse::getTotalArea, bo.getTotalArea());
 
-        lqw.eq(bo.getAuthenticationState() != null, CkWarehouse::getAuthenticationState, bo.getAuthenticationState());
+        // 时间区间查询（推荐写法）
+        Object beginTime = params.get("beginTime");
+        Object endTime = params.get("endTime");
+        if (beginTime != null && endTime != null) {
+            lqw.between(CkWarehouse::getCreateTime, beginTime, endTime);
+        }
 
-        //lqw.eq(StringUtils.isNotBlank(bo.getAuthenticationState()), CkWarehouse::getAuthenticationState, bo.getAuthenticationState());
-
+        // 精准匹配
         lqw.eq(StringUtils.isNotBlank(bo.getManageType()), CkWarehouse::getManageType, bo.getManageType());
         lqw.eq(StringUtils.isNotBlank(bo.getRegion()), CkWarehouse::getRegion, bo.getRegion());
         lqw.eq(StringUtils.isNotBlank(bo.getAddress()), CkWarehouse::getAddress, bo.getAddress());
         lqw.eq(StringUtils.isNotBlank(bo.getMainCategory()), CkWarehouse::getMainCategory, bo.getMainCategory());
-        lqw.eq(StringUtils.isNotBlank(bo.getInnerFacilities()), CkWarehouse::getInnerFacilities, bo.getInnerFacilities());
-        lqw.eq(StringUtils.isNotBlank(bo.getOuterFacilities()), CkWarehouse::getOuterFacilities, bo.getOuterFacilities());
-        lqw.eq(StringUtils.isNotBlank(bo.getSecurityInfo()), CkWarehouse::getSecurityInfo, bo.getSecurityInfo());
-        lqw.eq(StringUtils.isNotBlank(bo.getAdvantage()), CkWarehouse::getAdvantage, bo.getAdvantage());
-        lqw.eq(StringUtils.isNotBlank(bo.getFunctionInfo()), CkWarehouse::getFunctionInfo, bo.getFunctionInfo());
-        lqw.eq(StringUtils.isNotBlank(bo.getGallery()), CkWarehouse::getGallery, bo.getGallery());
         lqw.eq(StringUtils.isNotBlank(bo.getFireLevel()), CkWarehouse::getFireLevel, bo.getFireLevel());
+        lqw.eq(bo.getUseYears() != null, CkWarehouse::getUseYears, bo.getUseYears());
+        lqw.eq(bo.getAreaMu() != null, CkWarehouse::getAreaMu, bo.getAreaMu());
+        lqw.eq(bo.getBuildingCount() != null, CkWarehouse::getBuildingCount, bo.getBuildingCount());
+        lqw.eq(bo.getVolumeRatio() != null, CkWarehouse::getVolumeRatio, bo.getVolumeRatio());
+        lqw.eq(bo.getFloorHeight() != null, CkWarehouse::getFloorHeight, bo.getFloorHeight());
+        lqw.eq(bo.getTotalArea() != null, CkWarehouse::getTotalArea, bo.getTotalArea());
+        lqw.eq(bo.getAuthenticationState() != null, CkWarehouse::getAuthenticationState, bo.getAuthenticationState());
         lqw.eq(bo.getFireExpireDate() != null, CkWarehouse::getFireExpireDate, bo.getFireExpireDate());
-        lqw.eq(StringUtils.isNotBlank(bo.getWarehouseAreaInfo()), CkWarehouse::getWarehouseAreaInfo, bo.getWarehouseAreaInfo());
+
+        // 模糊查询（名称）
+        lqw.like(StringUtils.isNotBlank(bo.getWarehouseName()), CkWarehouse::getWarehouseName, bo.getWarehouseName());
+
+        // 多选字段（text 类型适合用 like）
+        lqw.like(StringUtils.isNotBlank(bo.getInnerFacilities()), CkWarehouse::getInnerFacilities, bo.getInnerFacilities());
+        lqw.like(StringUtils.isNotBlank(bo.getOuterFacilities()), CkWarehouse::getOuterFacilities, bo.getOuterFacilities());
+        lqw.like(StringUtils.isNotBlank(bo.getSecurityInfo()), CkWarehouse::getSecurityInfo, bo.getSecurityInfo());
+        lqw.like(StringUtils.isNotBlank(bo.getAdvantage()), CkWarehouse::getAdvantage, bo.getAdvantage());
+        lqw.like(StringUtils.isNotBlank(bo.getFunctionInfo()), CkWarehouse::getFunctionInfo, bo.getFunctionInfo());
+        lqw.like(StringUtils.isNotBlank(bo.getGallery()), CkWarehouse::getGallery, bo.getGallery());
+        lqw.like(StringUtils.isNotBlank(bo.getWarehouseAreaInfo()), CkWarehouse::getWarehouseAreaInfo, bo.getWarehouseAreaInfo());
+
+        // 排序
+        //lqw.orderByAsc(CkWarehouse::getId);
+
         return lqw;
     }
 

@@ -1,26 +1,27 @@
 package com.szx.ck.controller;
 
-import java.util.List;
-
-import lombok.RequiredArgsConstructor;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.validation.constraints.*;
 import cn.dev33.satoken.annotation.SaCheckPermission;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.validation.annotation.Validated;
-import com.szx.common.idempotent.annotation.RepeatSubmit;
-import com.szx.common.log.annotation.Log;
-import com.szx.common.web.core.BaseController;
-import com.szx.common.mybatis.core.page.PageQuery;
+import com.szx.ck.domain.bo.CkWarehouseBo;
+import com.szx.ck.domain.vo.CkWarehouseVo;
+import com.szx.ck.service.ICkWarehouseService;
 import com.szx.common.core.domain.R;
 import com.szx.common.core.validate.AddGroup;
 import com.szx.common.core.validate.EditGroup;
-import com.szx.common.log.enums.BusinessType;
 import com.szx.common.excel.utils.ExcelUtil;
-import com.szx.ck.domain.vo.CkWarehouseVo;
-import com.szx.ck.domain.bo.CkWarehouseBo;
-import com.szx.ck.service.ICkWarehouseService;
+import com.szx.common.idempotent.annotation.RepeatSubmit;
+import com.szx.common.log.annotation.Log;
+import com.szx.common.log.enums.BusinessType;
+import com.szx.common.mybatis.core.page.PageQuery;
 import com.szx.common.mybatis.core.page.TableDataInfo;
+import com.szx.common.web.core.BaseController;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 仓库基础数据录入
