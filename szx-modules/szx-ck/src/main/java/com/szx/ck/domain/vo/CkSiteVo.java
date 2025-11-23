@@ -71,6 +71,10 @@ public class CkSiteVo implements Serializable {
      */
     @ExcelProperty(value = "联系电话")
     private String contactPhone;
-
+    /**
+     * 创建时间
+     */
+    @ExcelProperty(value = "创建时间")
+    private Date createTime;
 
 }

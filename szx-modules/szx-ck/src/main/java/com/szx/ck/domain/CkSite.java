@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serial;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -60,6 +61,9 @@ public class CkSite extends BaseEntity {
      * 联系电话
      */
     private String contactPhone;
-
+    /**
+     * 创建时间
+     */
+    private Date createTime;
 
 }
