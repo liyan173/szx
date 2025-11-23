@@ -2,11 +2,13 @@ package com.szx.ck.domain;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import com.szx.common.mybatis.core.domain.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serial;
+import java.util.List;
 
 /**
  * 网点信息对象 ck_site
@@ -16,7 +18,7 @@ import java.io.Serial;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@TableName("ck_site")
+@TableName(value = "ck_site", autoResultMap = true)
 public class CkSite extends BaseEntity {
 
     @Serial
@@ -39,9 +41,10 @@ public class CkSite extends BaseEntity {
     private String userType;
 
     /**
-     * 所属区域
+     * 所属区域(省市区三级联动数组)
      */
-    private String region;
+    @com.baomidou.mybatisplus.annotation.TableField(typeHandler = JacksonTypeHandler.class)
+    private List<String> region;
 
     /**
      * 详细地址

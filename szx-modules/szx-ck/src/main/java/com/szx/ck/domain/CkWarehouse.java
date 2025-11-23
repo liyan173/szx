@@ -2,6 +2,7 @@ package com.szx.ck.domain;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import com.szx.common.mybatis.core.domain.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,6 +10,7 @@ import lombok.EqualsAndHashCode;
 import java.io.Serial;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 仓库基础数据录入对象 ck_warehouse
@@ -18,7 +20,7 @@ import java.util.Date;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@TableName("ck_warehouse")
+@TableName(value ="ck_warehouse" ,autoResultMap = true)
 public class CkWarehouse extends BaseEntity {
 
     @Serial
@@ -76,9 +78,10 @@ public class CkWarehouse extends BaseEntity {
     private String manageType;
 
     /**
-     * 所属区域
+     * 所属区域(省市区三级联动数组)
      */
-    private String region;
+    @com.baomidou.mybatisplus.annotation.TableField(typeHandler = JacksonTypeHandler.class)
+    private List<String> region;
 
     /**
      * 详细地址
@@ -138,5 +141,10 @@ public class CkWarehouse extends BaseEntity {
      * 认证状态
      */
     private Integer authenticationState;
+
+    /**
+     * 创建时间
+     */
+    private Date createTime;
 
 }

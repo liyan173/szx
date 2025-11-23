@@ -15,6 +15,7 @@ import com.szx.common.mybatis.core.page.TableDataInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Collection;
 import java.util.List;
@@ -55,6 +56,7 @@ public class CkSiteServiceImpl implements ICkSiteService {
     public TableDataInfo<CkSiteVo> queryPageList(CkSiteBo bo, PageQuery pageQuery) {
         LambdaQueryWrapper<CkSite> lqw = buildQueryWrapper(bo);
         Page<CkSiteVo> result = baseMapper.selectVoPage(pageQuery.build(), lqw);
+        System.err.println(result);
         return TableDataInfo.build(result);
     }
 
@@ -76,7 +78,8 @@ public class CkSiteServiceImpl implements ICkSiteService {
         lqw.orderByAsc(CkSite::getId);
         lqw.eq(StringUtils.isNotBlank(bo.getSiteType()), CkSite::getSiteType, bo.getSiteType());
         lqw.eq(StringUtils.isNotBlank(bo.getUserType()), CkSite::getUserType, bo.getUserType());
-        lqw.eq(StringUtils.isNotBlank(bo.getRegion()), CkSite::getRegion, bo.getRegion());
+        // region 字段改为 JSON 类型，支持三级联动查询
+        lqw.eq(!CollectionUtils.isEmpty(bo.getRegion()), CkSite::getRegion, bo.getRegion());
         lqw.eq(StringUtils.isNotBlank(bo.getAddress()), CkSite::getAddress, bo.getAddress());
         lqw.eq(StringUtils.isNotBlank(bo.getContactPerson()), CkSite::getContactPerson, bo.getContactPerson());
         lqw.eq(StringUtils.isNotBlank(bo.getContactPhone()), CkSite::getContactPhone, bo.getContactPhone());

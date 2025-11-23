@@ -12,6 +12,7 @@ import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 仓库基础数据录入业务对象 ck_warehouse
@@ -82,11 +83,16 @@ public class CkWarehouseBo extends BaseEntity {
      */
     private String manageType;
 
+//    /**
+//     * 所属区域
+//     */
+//    @NotBlank(message = "所属区域不能为空", groups = { AddGroup.class, EditGroup.class })
+//    private String region;
+
     /**
-     * 所属区域
+     * 所属区域(省市区三级联动数组)
      */
-    @NotBlank(message = "所属区域不能为空", groups = { AddGroup.class, EditGroup.class })
-    private String region;
+    private List<String> region;
 
     /**
      * 详细地址

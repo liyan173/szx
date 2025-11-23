@@ -15,6 +15,7 @@ import com.szx.common.mybatis.core.page.TableDataInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Collection;
 import java.util.List;
@@ -84,7 +85,7 @@ public class CkWarehouseServiceImpl implements ICkWarehouseService {
 
         // 精准匹配
         lqw.eq(StringUtils.isNotBlank(bo.getManageType()), CkWarehouse::getManageType, bo.getManageType());
-        lqw.eq(StringUtils.isNotBlank(bo.getRegion()), CkWarehouse::getRegion, bo.getRegion());
+        //lqw.eq(StringUtils.isNotBlank(bo.getRegion()), CkWarehouse::getRegion, bo.getRegion());
         lqw.eq(StringUtils.isNotBlank(bo.getAddress()), CkWarehouse::getAddress, bo.getAddress());
         lqw.eq(StringUtils.isNotBlank(bo.getMainCategory()), CkWarehouse::getMainCategory, bo.getMainCategory());
         lqw.eq(StringUtils.isNotBlank(bo.getFireLevel()), CkWarehouse::getFireLevel, bo.getFireLevel());
@@ -96,7 +97,8 @@ public class CkWarehouseServiceImpl implements ICkWarehouseService {
         lqw.eq(bo.getTotalArea() != null, CkWarehouse::getTotalArea, bo.getTotalArea());
         lqw.eq(bo.getAuthenticationState() != null, CkWarehouse::getAuthenticationState, bo.getAuthenticationState());
         lqw.eq(bo.getFireExpireDate() != null, CkWarehouse::getFireExpireDate, bo.getFireExpireDate());
-
+        // region 字段改为 JSON 类型，支持三级联动查询
+        lqw.eq(!CollectionUtils.isEmpty(bo.getRegion()), CkWarehouse::getRegion, bo.getRegion());
         // 模糊查询（名称）
         lqw.like(StringUtils.isNotBlank(bo.getWarehouseName()), CkWarehouse::getWarehouseName, bo.getWarehouseName());
 

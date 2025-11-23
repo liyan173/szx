@@ -14,7 +14,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-
+import java.util.List;
 
 
 /**
@@ -95,12 +95,18 @@ public class CkWarehouseVo implements Serializable {
     @ExcelDictFormat(dictType = "warehouse_method_type")
     private String manageType;
 
+//    /**
+//     * 所属区域
+//     */
+//    @ExcelProperty(value = "所属区域", converter = ExcelDictConvert.class)
+//    @ExcelDictFormat(dictType = "area_type")
+//    private String region;
+
     /**
-     * 所属区域
+     * 所属区域(省市区三级联动数组)
      */
-    @ExcelProperty(value = "所属区域", converter = ExcelDictConvert.class)
-    @ExcelDictFormat(dictType = "area_type")
-    private String region;
+    @ExcelProperty(value = "所属区域")
+    private List<String> region;
 
     /**
      * 详细地址
@@ -190,4 +196,10 @@ public class CkWarehouseVo implements Serializable {
     @ExcelProperty(value = "认证状态")
     @ExcelDictFormat(dictType = "authentication_state_type")
     private Integer authenticationState;
+
+    /**
+     * 创建时间
+     */
+    @ExcelProperty(value = "创建时间")
+    private Date createTime;
 }

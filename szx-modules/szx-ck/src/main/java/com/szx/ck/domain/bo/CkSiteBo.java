@@ -10,6 +10,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.List;
+
 /**
  * 网点信息业务对象 ck_site
  *
@@ -40,9 +42,9 @@ public class CkSiteBo extends BaseEntity {
     private String userType;
 
     /**
-     * 所属区域
+     * 所属区域(省市区三级联动数组)
      */
-    private String region;
+    private List<String> region;
 
     /**
      * 详细地址

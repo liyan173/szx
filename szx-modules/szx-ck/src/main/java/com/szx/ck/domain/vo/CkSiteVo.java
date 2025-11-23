@@ -11,6 +11,7 @@ import lombok.Data;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 
 
@@ -47,11 +48,10 @@ public class CkSiteVo implements Serializable {
     private String userType;
 
     /**
-     * 所属区域
+     * 所属区域(省市区三级联动数组)
      */
-    @ExcelProperty(value = "所属区域", converter = ExcelDictConvert.class)
-    @ExcelDictFormat(dictType = "area_type")
-    private String region;
+    @ExcelProperty(value = "所属区域")
+    private List<String> region;
 
     /**
      * 详细地址
