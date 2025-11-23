@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serial;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -37,7 +38,7 @@ public class CkWarehouse extends BaseEntity {
     /**
      * 占地(亩)
      */
-    private Long areaMu;
+    private BigDecimal areaMu;
 
     /**
      * 土地属性
@@ -47,27 +48,27 @@ public class CkWarehouse extends BaseEntity {
     /**
      * 使用年限
      */
-    private Long useYears;
+    private Integer useYears;
 
     /**
      * 楼栋数量
      */
-    private Long buildingCount;
+    private Integer buildingCount;
 
     /**
      * 容积率
      */
-    private Long volumeRatio;
+    private BigDecimal volumeRatio;
 
     /**
      * 层高
      */
-    private Long floorHeight;
+    private BigDecimal floorHeight;
 
     /**
      * 仓库总面积（㎡）
      */
-    private Long totalArea;
+    private BigDecimal totalArea;
 
     /**
      * 仓库管理方式
@@ -133,6 +134,9 @@ public class CkWarehouse extends BaseEntity {
      * 各类仓库面积
      */
     private String warehouseAreaInfo;
-
+    /**
+     * 认证状态
+     */
+    private Integer authenticationState;
 
 }

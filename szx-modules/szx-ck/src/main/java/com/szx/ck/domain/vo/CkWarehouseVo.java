@@ -1,19 +1,18 @@
 package com.szx.ck.domain.vo;
 
-import com.szx.common.translation.annotation.Translation;
-import com.szx.common.translation.constant.TransConstant;
-import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.szx.ck.domain.CkWarehouse;
 import cn.idev.excel.annotation.ExcelIgnoreUnannotated;
 import cn.idev.excel.annotation.ExcelProperty;
+import com.szx.ck.domain.CkWarehouse;
 import com.szx.common.excel.annotation.ExcelDictFormat;
 import com.szx.common.excel.convert.ExcelDictConvert;
+import com.szx.common.translation.annotation.Translation;
+import com.szx.common.translation.constant.TransConstant;
 import io.github.linpeilie.annotations.AutoMapper;
 import lombok.Data;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 
@@ -48,7 +47,7 @@ public class CkWarehouseVo implements Serializable {
      * 占地(亩)
      */
     @ExcelProperty(value = "占地(亩)")
-    private Long areaMu;
+    private BigDecimal areaMu;
 
     /**
      * 土地属性
@@ -62,32 +61,32 @@ public class CkWarehouseVo implements Serializable {
      */
     @ExcelProperty(value = "使用年限", converter = ExcelDictConvert.class)
     @ExcelDictFormat(dictType = "age_limit_type")
-    private Long useYears;
+    private Integer useYears;
 
     /**
      * 楼栋数量
      */
     @ExcelProperty(value = "楼栋数量")
-    private Long buildingCount;
+    private Integer buildingCount;
 
     /**
      * 容积率
      */
     @ExcelProperty(value = "容积率")
-    private Long volumeRatio;
+    private BigDecimal volumeRatio;
 
     /**
      * 层高
      */
     @ExcelProperty(value = "层高")
-    private Long floorHeight;
+    private BigDecimal floorHeight;
 
     /**
      * 仓库总面积（㎡）
      */
     @ExcelProperty(value = "仓库总面积", converter = ExcelDictConvert.class)
     @ExcelDictFormat(readConverterExp = "㎡=")
-    private Long totalArea;
+    private BigDecimal totalArea;
 
     /**
      * 仓库管理方式
@@ -185,5 +184,10 @@ public class CkWarehouseVo implements Serializable {
     @ExcelProperty(value = "各类仓库面积")
     private String warehouseAreaInfo;
 
-
+    /**
+     * 认证状态
+     */
+    @ExcelProperty(value = "认证状态")
+    @ExcelDictFormat(dictType = "authentication_state_type")
+    private Integer authenticationState;
 }

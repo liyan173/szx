@@ -10,6 +10,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -39,7 +40,7 @@ public class CkWarehouseBo extends BaseEntity {
      * 占地(亩)
      */
     @NotNull(message = "占地(亩)不能为空", groups = { AddGroup.class, EditGroup.class })
-    private Long areaMu;
+    private BigDecimal areaMu;
 
     /**
      * 土地属性
@@ -51,30 +52,30 @@ public class CkWarehouseBo extends BaseEntity {
      * 使用年限
      */
     @NotNull(message = "使用年限不能为空", groups = { AddGroup.class, EditGroup.class })
-    private Long useYears;
+    private Integer useYears;
 
     /**
      * 楼栋数量
      */
     @NotNull(message = "楼栋数量不能为空", groups = { AddGroup.class, EditGroup.class })
-    private Long buildingCount;
+    private Integer buildingCount;
 
     /**
      * 容积率
      */
     @NotNull(message = "容积率不能为空", groups = { AddGroup.class, EditGroup.class })
-    private Long volumeRatio;
+    private BigDecimal volumeRatio;
 
     /**
      * 层高
      */
     @NotNull(message = "层高不能为空", groups = { AddGroup.class, EditGroup.class })
-    private Long floorHeight;
+    private BigDecimal floorHeight;
 
     /**
      * 仓库总面积（㎡）
      */
-    private Long totalArea;
+    private BigDecimal totalArea;
 
     /**
      * 仓库管理方式
@@ -146,5 +147,9 @@ public class CkWarehouseBo extends BaseEntity {
      */
     private String warehouseAreaInfo;
 
+    /**
+     * 认证状态
+     */
+    private Integer authenticationState;
 
 }

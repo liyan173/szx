@@ -82,6 +82,11 @@ public class CkWarehouseServiceImpl implements ICkWarehouseService {
         lqw.eq(bo.getVolumeRatio() != null, CkWarehouse::getVolumeRatio, bo.getVolumeRatio());
         lqw.eq(bo.getFloorHeight() != null, CkWarehouse::getFloorHeight, bo.getFloorHeight());
         lqw.eq(bo.getTotalArea() != null, CkWarehouse::getTotalArea, bo.getTotalArea());
+
+        lqw.eq(bo.getAuthenticationState() != null, CkWarehouse::getAuthenticationState, bo.getAuthenticationState());
+
+        //lqw.eq(StringUtils.isNotBlank(bo.getAuthenticationState()), CkWarehouse::getAuthenticationState, bo.getAuthenticationState());
+
         lqw.eq(StringUtils.isNotBlank(bo.getManageType()), CkWarehouse::getManageType, bo.getManageType());
         lqw.eq(StringUtils.isNotBlank(bo.getRegion()), CkWarehouse::getRegion, bo.getRegion());
         lqw.eq(StringUtils.isNotBlank(bo.getAddress()), CkWarehouse::getAddress, bo.getAddress());
@@ -106,8 +111,13 @@ public class CkWarehouseServiceImpl implements ICkWarehouseService {
      */
     @Override
     public Boolean insertByBo(CkWarehouseBo bo) {
+
+        bo.setAuthenticationState(4);
+
         CkWarehouse add = MapstructUtils.convert(bo, CkWarehouse.class);
+
         validEntityBeforeSave(add);
+
         boolean flag = baseMapper.insert(add) > 0;
         if (flag) {
             bo.setId(add.getId());
