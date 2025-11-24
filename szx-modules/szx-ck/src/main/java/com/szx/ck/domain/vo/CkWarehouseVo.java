@@ -202,4 +202,10 @@ public class CkWarehouseVo implements Serializable {
      */
     @ExcelProperty(value = "创建时间")
     private Date createTime;
+
+    /**
+     * 企业id
+     */
+    @ExcelProperty(value = "创建时间")
+    private Long companyId;
 }

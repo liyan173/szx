@@ -63,6 +63,9 @@ public class CkSiteBo extends BaseEntity {
      */
     @NotBlank(message = "联系电话不能为空", groups = { AddGroup.class, EditGroup.class })
     private String contactPhone;
-
+    /**
+     * 企业id
+     */
+    private Long companyId;
 
 }

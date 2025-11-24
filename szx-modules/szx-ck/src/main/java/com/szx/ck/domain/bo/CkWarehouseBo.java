@@ -158,4 +158,8 @@ public class CkWarehouseBo extends BaseEntity {
      */
     private Integer authenticationState;
 
+    /**
+     * 企业id
+     */
+    private Long companyId;
 }

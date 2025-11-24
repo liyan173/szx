@@ -1,8 +1,8 @@
 package com.szx.ck.domain.vo;
 
-import com.szx.ck.domain.CkCompany;
 import cn.idev.excel.annotation.ExcelIgnoreUnannotated;
 import cn.idev.excel.annotation.ExcelProperty;
+import com.szx.ck.domain.CkCompany;
 import com.szx.common.excel.annotation.ExcelDictFormat;
 import com.szx.common.excel.convert.ExcelDictConvert;
 import io.github.linpeilie.annotations.AutoMapper;
@@ -10,8 +10,7 @@ import lombok.Data;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
-
+import java.util.List;
 
 
 /**
@@ -111,5 +110,34 @@ public class CkCompanyVo implements Serializable {
     @ExcelProperty(value = "配送中心信息")
     private String deliveryCenterInfo;
 
-
+    /**
+     * 业务领域
+     */
+    @ExcelProperty(value = "业务领域")
+    private String linesOfBusiness;
+    /**
+     * 所属园区
+     */
+    @ExcelProperty(value = "所属园区")
+    private String gardenArea;
+    /**
+     * 法定代表人
+     */
+    @ExcelProperty(value = "法定代表人")
+    private String juridicalPerson;
+    /**
+     * 会员级别
+     */
+    @ExcelProperty(value = "会员级别")
+    private String member;
+    /**
+     * 认证状态
+     */
+    @ExcelProperty(value = "认证状态")
+    @ExcelDictFormat(dictType = "authentication_state_type")
+    private Integer authenticationState;
+    /**
+     * 所属区域(省市区三级联动数组)
+     */
+    private List<String> region;
 }

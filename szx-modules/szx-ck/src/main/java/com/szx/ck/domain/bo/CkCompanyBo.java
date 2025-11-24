@@ -10,6 +10,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.List;
+
 /**
  * 企业信息业务对象 ck_company
  *
@@ -44,7 +46,10 @@ public class CkCompanyBo extends BaseEntity {
      */
     @NotBlank(message = "企业性质不能为空", groups = { AddGroup.class, EditGroup.class })
     private String companyType;
-
+    /**
+     * 所属区域(省市区三级联动数组)
+     */
+    private List<String> region;
     /**
      * 企业规模
      */
@@ -97,5 +102,24 @@ public class CkCompanyBo extends BaseEntity {
     @NotBlank(message = "配送中心信息不能为空", groups = { AddGroup.class, EditGroup.class })
     private String deliveryCenterInfo;
 
-
+    /**
+     * 业务领域
+     */
+    private String linesOfBusiness;
+    /**
+     * 所属园区
+     */
+    private String gardenArea;
+    /**
+     * 法定代表人
+     */
+    private String juridicalPerson;
+    /**
+     * 会员级别
+     */
+    private String member;
+    /**
+     * 认证状态
+     */
+    private Integer authenticationState;
 }

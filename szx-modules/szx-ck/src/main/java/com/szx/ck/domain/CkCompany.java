@@ -2,11 +2,13 @@ package com.szx.ck.domain;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import com.szx.common.mybatis.core.domain.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serial;
+import java.util.List;
 
 /**
  * 企业信息对象 ck_company
@@ -88,5 +90,31 @@ public class CkCompany extends BaseEntity {
      */
     private String deliveryCenterInfo;
 
+
+    /**
+     * 业务领域
+     */
+    private String linesOfBusiness;
+    /**
+     * 所属园区
+     */
+    private String gardenArea;
+    /**
+     * 法定代表人
+     */
+    private String juridicalPerson;
+    /**
+     * 会员级别
+     */
+    private String member;
+    /**
+     * 认证状态
+     */
+    private Integer authenticationState;
+    /**
+     * 所属区域(省市区三级联动数组)
+     */
+    @com.baomidou.mybatisplus.annotation.TableField(typeHandler = JacksonTypeHandler.class)
+    private List<String> region;
 
 }
