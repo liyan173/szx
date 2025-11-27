@@ -75,6 +75,8 @@ public class CkCompanyServiceImpl implements ICkCompanyService {
         LambdaQueryWrapper<CkCompany> lqw = Wrappers.lambdaQuery();
         lqw.orderByAsc(CkCompany::getId);
         lqw.eq(bo.getAuthenticationState() != null, CkCompany::getAuthenticationState, bo.getAuthenticationState());
+
+
         lqw.like(StringUtils.isNotBlank(bo.getCompanyName()), CkCompany::getCompanyName, bo.getCompanyName());
         lqw.eq(StringUtils.isNotBlank(bo.getRegisterAddress()), CkCompany::getRegisterAddress, bo.getRegisterAddress());
         lqw.eq(StringUtils.isNotBlank(bo.getCompanyType()), CkCompany::getCompanyType, bo.getCompanyType());

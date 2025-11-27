@@ -1,12 +1,8 @@
 package com.szx.ck.domain.vo;
 
-import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.szx.ck.domain.CkWarehouseRentApply;
 import cn.idev.excel.annotation.ExcelIgnoreUnannotated;
 import cn.idev.excel.annotation.ExcelProperty;
-import com.szx.common.excel.annotation.ExcelDictFormat;
-import com.szx.common.excel.convert.ExcelDictConvert;
+import com.szx.ck.domain.CkWarehouseRentApply;
 import io.github.linpeilie.annotations.AutoMapper;
 import lombok.Data;
 
@@ -20,7 +16,7 @@ import java.util.Date;
  * 仓库出租服务申请视图对象 ck_warehouse_rent_apply
  *
  * @author Lion Li
- * @date 2025-11-22
+ * @date 2025-11-27
  */
 @Data
 @ExcelIgnoreUnannotated
@@ -95,6 +91,28 @@ public class CkWarehouseRentApplyVo implements Serializable {
      */
     @ExcelProperty(value = "信息描述")
     private String infoDesc;
+
+    /**
+     * 备注
+     */
+    @ExcelProperty(value = "备注")
+    private String remark;
+
+    /**
+     * 企业id
+     */
+    @ExcelProperty(value = "企业id")
+    private Long companyId;
+
+    /**
+     * 认证状态
+     0 通过
+     1 不通过
+     3 审核中
+     4 待提交
+     */
+    @ExcelProperty(value = "认证状态")
+    private String authenticationState;
 
 
 }

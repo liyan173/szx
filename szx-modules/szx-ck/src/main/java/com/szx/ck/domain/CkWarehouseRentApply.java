@@ -13,7 +13,7 @@ import java.util.Date;
  * 仓库出租服务申请对象 ck_warehouse_rent_apply
  *
  * @author Lion Li
- * @date 2025-11-22
+ * @date 2025-11-27
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -78,6 +78,25 @@ public class CkWarehouseRentApply extends BaseEntity {
      * 信息描述
      */
     private String infoDesc;
+
+    /**
+     * 备注
+     */
+    private String remark;
+
+    /**
+     * 企业id
+     */
+    private Long companyId;
+
+    /**
+     * 认证状态
+     0 通过
+     1 不通过
+     3 审核中
+     4 待提交
+     */
+    private String authenticationState;
 
 
 }

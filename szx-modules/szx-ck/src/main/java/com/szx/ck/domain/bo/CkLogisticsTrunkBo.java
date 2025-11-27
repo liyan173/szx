@@ -54,6 +54,9 @@ public class CkLogisticsTrunkBo extends BaseEntity {
      * 备注信息
      */
     private String remark;
-
+    /**
+     * 企业id
+     */
+    private Long companyId;
 
 }

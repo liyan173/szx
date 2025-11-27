@@ -24,7 +24,7 @@ import java.util.Map;
  * 仓库出租服务申请Service业务层处理
  *
  * @author Lion Li
- * @date 2025-11-22
+ * @date 2025-11-27
  */
 @Slf4j
 @RequiredArgsConstructor
@@ -84,6 +84,8 @@ public class CkWarehouseRentApplyServiceImpl implements ICkWarehouseRentApplySer
         lqw.eq(StringUtils.isNotBlank(bo.getContactPerson()), CkWarehouseRentApply::getContactPerson, bo.getContactPerson());
         lqw.eq(StringUtils.isNotBlank(bo.getContactPhone()), CkWarehouseRentApply::getContactPhone, bo.getContactPhone());
         lqw.eq(StringUtils.isNotBlank(bo.getInfoDesc()), CkWarehouseRentApply::getInfoDesc, bo.getInfoDesc());
+        lqw.eq(bo.getCompanyId() != null, CkWarehouseRentApply::getCompanyId, bo.getCompanyId());
+        lqw.eq(StringUtils.isNotBlank(bo.getAuthenticationState()), CkWarehouseRentApply::getAuthenticationState, bo.getAuthenticationState());
         return lqw;
     }
 

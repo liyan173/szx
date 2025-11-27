@@ -1,16 +1,13 @@
 package com.szx.ck.domain.vo;
 
-import com.szx.ck.domain.CkLogisticsTrunk;
 import cn.idev.excel.annotation.ExcelIgnoreUnannotated;
 import cn.idev.excel.annotation.ExcelProperty;
-import com.szx.common.excel.annotation.ExcelDictFormat;
-import com.szx.common.excel.convert.ExcelDictConvert;
+import com.szx.ck.domain.CkLogisticsTrunk;
 import io.github.linpeilie.annotations.AutoMapper;
 import lombok.Data;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
 
 
 
@@ -63,6 +60,9 @@ public class CkLogisticsTrunkVo implements Serializable {
      */
     @ExcelProperty(value = "备注信息")
     private String remark;
-
+    /**
+     * 企业id
+     */
+    private Long companyId;
 
 }
